@@ -4,7 +4,10 @@
   <h2>Package: db</h2>
   <p>Package <code>db</code> provides functions for interacting with a user database stored in a JSON file.</p>
 </div>
-
+<div>
+  <p><strong>Important Note:</strong><br>
+   - <code>FillCacheForDB()</code> and <code>defer SaveCacheForDB()</code> functions **should be placed at the top of your main function.** <code>FillCacheForDB()</code> initializes the cache by reading from the JSON file, and <code>SaveCacheForDB()</code> ensures that any changes made to the cache are saved back to the JSON file when the program exits.</p>
+</div>
 <div>
   <h3>Functions:</h3>
 
@@ -31,9 +34,4 @@
 
   <p><strong>7. DeleteUserById(id int):</strong><br>
    - Removes a user from the cache by their ID.</p>
-</div>
-
-<div>
-  <p><strong>Important Note:</strong><br>
-   - <code>FillCacheForDB()</code> and <code>SaveCacheForDB()</code> functions should be placed at the top of your main function. <code>FillCacheForDB()</code> initializes the cache by reading from the JSON file, and <code>SaveCacheForDB()</code> ensures that any changes made to the cache are saved back to the JSON file when the program exits.</p>
 </div>
