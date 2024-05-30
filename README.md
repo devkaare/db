@@ -6,7 +6,7 @@
 </div>
 <div>
   <p><strong>Important Note:</strong><br>
-   - <code>LoadUsersFromJSON()</code> and <code>defer SaveUsersToJSON()</code> functions **should be placed at the top of your main function.** <code>LoadUsersFromJSON()</code> initializes the cache by reading from the JSON file, and <code>SaveUsersToJSON()</code> ensures that any changes made to the cache are saved back to the JSON file when the program exits.</p>
+   - <code>LoadUsersFromJSON()</code> and <code>defer SaveUsersToJSON()</code> functions <strong>should be placed at the top of your main function.</strong> <code>LoadUsersFromJSON()</code> initializes the cache by reading from the JSON file, and <code>SaveUsersToJSON()</code> ensures that any changes made to the cache are saved back to the JSON file when the program exits.</p>
 </div>
 <div>
   <h3>Functions:</h3>
