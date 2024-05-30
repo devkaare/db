@@ -49,4 +49,3 @@ type User struct {
   <p><strong>7. RemoveUserByID(id int):</strong><br>
    - Removes a user from the cache by their ID.</p>
 </div>
-<p style="font-size: small; color: lightgray;">This README was written by AI, but the code wasn't - Kaare</p>
