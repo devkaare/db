@@ -8,10 +8,10 @@ import (
 )
 
 type User struct {
-	Username string `json:"Username"`
-	Password    string `json:"Password"`
-	Email    string `json:"Email"`
-	ID       int    `json:"ID"`
+    Id       int    `json:"Id"`
+    Username string `json:"Username"`
+    Email    string `json:"Email"`
+    Password string `json:"Password"`
 }
 
 var userFile = "users.json"
@@ -28,7 +28,7 @@ func DoesFileExist(path string) (bool, error) {
 	return true, err
 }
 
-func LoadUsersFromJSON() {
+func LoadCache() {
 	result, _ := DoesFileExist(userFile)
 	if !result {
 		os.Create(userFile)
@@ -46,7 +46,7 @@ func LoadUsersFromJSON() {
 
 }
 
-func SaveUsersToJSON() {
+func SaveCache() {
 	newData, err := json.Marshal(userFileCache)
 	if err != nil {
 		log.Fatal(err)
@@ -57,35 +57,31 @@ func SaveUsersToJSON() {
 	}
 }
 
-func InsertUser(user User) {
+func AddUser(user User) {
 	userFileCache = append(userFileCache, user)
 }
 
-func RetrieveAllUsers() []User {
-	return userFileCache
-}
-
-func RetrieveUserByID(id int) User {
+func GetUserById(id int) User {
 	var foundUser User
 	for _, user := range userFileCache {
-		if user.ID == id {
+		if user.Id == id {
 			foundUser = user
-            break
+			break
 		}
 	}
 	return foundUser
 }
 
-func RemoveUserByID(id int) {
+func DeleteUserById(id int) {
 	var userIndex int
 	for i, user := range userFileCache {
-		if user.ID == id {
+		if user.Id == id {
 			userIndex = i
-            break
+			break
 		}
 	}
 
-    if userIndex > 0 {
-        userFileCache = append(userFileCache[:userIndex], userFileCache[userIndex+1:]...)
-    }
+	if userIndex > 0 {
+		userFileCache = append(userFileCache[:userIndex], userFileCache[userIndex+1:]...)
+	}
 }
