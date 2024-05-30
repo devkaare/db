@@ -1,3 +1,3 @@
-module learn-go-json
+module github.com/devkaare/golang-json-db
 
 go 1.22.3
