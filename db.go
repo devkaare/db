@@ -17,6 +17,7 @@ type User struct {
 var userFile = "users.json"
 var userFileCache []User
 
+// This function is not intended to be used outside this file, hence not included in docs
 func DoesFileExist(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
