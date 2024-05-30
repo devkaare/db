@@ -1,3 +1,3 @@
-module github.com/devkaare/golang-json-db
+module github.com/devkaare/db
 
 go 1.22.3
