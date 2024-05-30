@@ -4,7 +4,7 @@
 </div>
 <div>
   <p><strong>Important:</strong><br>
-    Call <code>LoadCache()</code> at the start of your main function to initialize the user cache, and defer <code>SaveCache()</code> to save changes when the program exits.</p>
+    Call <code>LoadCache()</code> at the start of your main function to initialize the user cache, and <code>defer SaveCache()</code> to save changes when the program exits.</p>
 </div>
 <div>
   <h3>User Struct:</h3>
