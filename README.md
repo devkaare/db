@@ -20,8 +20,6 @@ type User struct {
 </div>
 <div>
   <h3>Functions:</h3>
-  <p><strong>1. DoesFileExist(path string) (bool, error):</strong><br>
-    Checks if a file exists at the given path.</p>
   <p><strong>2. LoadCache():</strong><br>
     Loads the user cache from the JSON file. Call this at the start of your main function.</p>
   <p><strong>3. SaveCache():</strong><br>
