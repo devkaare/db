@@ -26,8 +26,8 @@ type User struct {
     Saves the user cache to the JSON file. Defer this at the start of your main function.</p>
   <p><strong>4. AddUser(user User):</strong><br>
     Adds a user to the cache.</p>
-  <p><strong>5. GetUserById(id int) User:</strong><br>
-    Retrieves a user from the cache by their Id.</p>
+  <p><strong>5. GetUser(userField T) User:</strong><br>
+    Retrieves a user from the cache based on a given field (Id, Username, or Email).</p>
   <p><strong>6. DeleteUserById(id int):</strong><br>
     Deletes a user from the cache by their Id.</p>
 </div>
