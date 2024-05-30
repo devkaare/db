@@ -1,7 +1,6 @@
 <h1>This is not meant for production use, and is not recommended when dealing with large amounts of data!</h1>
 
 <div>
-  <h2>Package: db</h2>
   <p>Package <code>db</code> provides functions for interacting with a user database stored in a JSON file.</p>
 </div>
 <div>
