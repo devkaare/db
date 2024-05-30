@@ -27,7 +27,7 @@ func DoesFileExist(path string) (bool, error) {
 	return true, err
 }
 
-func FillCacheForDB() {
+func FillCache() {
 	result, _ := DoesFileExist(userFile)
 	if !result {
 		os.Create(userFile)
@@ -45,7 +45,7 @@ func FillCacheForDB() {
 
 }
 
-func SaveCacheForDB() {
+func SaveCache() {
 	newData, err := json.Marshal(userFileCache)
 	if err != nil {
 		log.Fatal(err)
@@ -56,11 +56,11 @@ func SaveCacheForDB() {
 	}
 }
 
-func WriteToDB(user User) {
+func SaveUser(user User) {
 	userFileCache = append(userFileCache, user)
 }
 
-func ReadFromFile() []User {
+func GetUsers() []User {
 	return userFileCache
 }
 
