@@ -67,7 +67,7 @@ func RetrieveAllUsers() []User {
 func RetrieveUserByID(id int) User {
 	var foundUser User
 	for _, user := range userFileCache {
-		if user.Id == id {
+		if user.ID == id {
 			foundUser = user
             break
 		}
@@ -78,7 +78,7 @@ func RetrieveUserByID(id int) User {
 func RemoveUserByID(id int) {
 	var userIndex int
 	for i, user := range userFileCache {
-		if user.Id == id {
+		if user.ID == id {
 			userIndex = i
             break
 		}
