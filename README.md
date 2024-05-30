@@ -16,7 +16,7 @@ type User struct {
     Password string `json:"Password"`
 }
   </code></pre>
-  <p>This can be modified by simply downloading the <code>db.go</code> file, placing it in a folder named <code>db</code> inside your project and importing it using <code>import "your_project_path/db"</code>.</p>
+  <p>This can be modified by simply downloading the <code>db.go</code> file, placing it in a folder named <code>db</code> inside your project and importing it using <code>import "your-project-path/db"</code>.</p>
 </div>
 <div>
   <h3>Functions:</h3>
