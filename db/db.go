@@ -69,7 +69,22 @@ func GetUserById(id int) User {
 	for _, user := range userFileCache {
 		if user.Id == id {
 			foundUser = user
+            break
 		}
 	}
 	return foundUser
+}
+
+func DeleteUserById(id int) {
+	var userIndex int
+	for i, user := range userFileCache {
+		if user.Id == id {
+			userIndex = i
+            break
+		}
+	}
+
+    if userIndex > 0 {
+        userFileCache = append(userFileCache[:userIndex], userFileCache[userIndex+1:]...)
+    }
 }

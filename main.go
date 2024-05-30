@@ -20,12 +20,20 @@ func main() {
         //log.Printf("Wrote number %v, to database\n", i)
 	}
 
-    randUserId := 970454965
+    randUserId := 36713240
 
-	log.Println("Checking Id:", randUserId)
+	log.Println("Checking for user with Id:", randUserId)
 	user := db.GetUserById(randUserId)
 	if user.Username != "" {
 		log.Printf("Found user: Username: %v, Email: %v, Id: %v\n", user.Username, user.Email, user.Id)
+	} else {
+		log.Println("No user was found with Id:", randUserId)
+	}
+
+    log.Println("Trying to delete user with Id:", randUserId)
+	if user.Username != "" {
+        log.Println("Deleted user with Id:", randUserId)
+        db.DeleteUserById(randUserId)
 	} else {
 		log.Println("No user was found with Id:", randUserId)
 	}
