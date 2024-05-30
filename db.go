@@ -56,7 +56,7 @@ func SaveUsersToJSON() {
 	}
 }
 
-func AddUserToCache(user User) {
+func InsertUser(user User) {
 	userFileCache = append(userFileCache, user)
 }
 
