@@ -8,6 +8,21 @@
   <p><strong>Important Note:</strong><br>
    - <code>LoadUsersFromJSON()</code> and <code>defer SaveUsersToJSON()</code> functions <strong>should be placed at the top of your main function.</strong> <code>LoadUsersFromJSON()</code> initializes the cache by reading from the JSON file, and <code>SaveUsersToJSON()</code> ensures that any changes made to the cache are saved back to the JSON file when the program exits.</p>
 </div>
+
+<div>
+  <h3>Important Struct Information:</h3>
+  <p>The <code>User</code> struct is defined as follows:</p>
+  <pre><code>
+type User struct {
+    Username string `json:"Username"`
+    Password string `json:"Password"`
+    Email    string `json:"Email"`
+    ID       int    `json:"ID"`
+}
+  </code></pre>
+  <p>You could also just download the <code>db.go</code> file yourself, put the file inside a folder named <code>db</code> in your project directory, and import it in your code using <code>import "your_project_path/db"</code>.</p>
+</div>
+
 <div>
   <h3>Functions:</h3>
 
