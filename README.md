@@ -1,7 +1,7 @@
 <h1>This is not meant for production use, and is not recommended when dealing with large amounts of data!</h1>
 
 <div>
-  <p>Package <code>db</code> provides functions for interacting with a user database stored in a JSON file.</p>
+  <p>This <code>db</code> package provides functions for interacting with a user database stored in a JSON file.</p>
 </div>
 <div>
   <p><strong>Important Note:</strong><br>
