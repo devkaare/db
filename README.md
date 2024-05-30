@@ -1,4 +1,4 @@
-<h1><strong>WARNING:</strong> This is not meant for production use, and is not reccomended when dealing with large amounts of data!</h1>h1>
+<h1><strong>WARNING:</strong> This is not meant for production use, and is not reccomended when dealing with large amounts of data!</h1>
 
 <div>
   <h2>Package: db</h2>
