@@ -8,10 +8,10 @@ import (
 )
 
 type User struct {
-    Id       int    `json:"Id"`
-    Username string `json:"Username"`
-    Email    string `json:"Email"`
-    Password string `json:"Password"`
+	Id       int    `json:"Id"`
+	Username string `json:"Username"`
+	Email    string `json:"Email"`
+	Password string `json:"Password"`
 }
 
 var userFile = "users.json"
@@ -62,12 +62,24 @@ func AddUser(user User) {
 	userFileCache = append(userFileCache, user)
 }
 
-func GetUserById(id int) User {
+func GetUser[T any](userField T) User {
 	var foundUser User
 	for _, user := range userFileCache {
-		if user.Id == id {
-			foundUser = user
-			break
+		switch v := any(userField).(type) {
+		case int:
+			if user.Id == v {
+				foundUser = user
+				break
+			}
+		case string:
+			if user.Username == v {
+				foundUser = user
+				break
+			} else if user.Email == v {
+				foundUser = user
+				break
+			}
+
 		}
 	}
 	return foundUser
