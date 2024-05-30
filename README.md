@@ -1,51 +1,35 @@
-<h1>This is not meant for production use, and is not recommended when dealing with large amounts of data!</h1>
-
+<h1>Not for production use and not recommended for large datasets!</h1>
 <div>
-  <p>This <code>db</code> package provides functions for interacting with a user database stored in a JSON file.</p>
+  <p>This <code>db</code> package provides basic functions for managing users stored in a JSON file.</p>
 </div>
 <div>
-  <p><strong>Important Note:</strong><br>
-   - <code>LoadUsersFromJSON()</code> and <code>defer SaveUsersToJSON()</code> functions <strong>should be placed at the top of your main function.</strong> <code>LoadUsersFromJSON()</code> initializes the cache by reading from the JSON file, and <code>SaveUsersToJSON()</code> ensures that any changes made to the cache are saved back to the JSON file when the program exits.</p>
+  <p><strong>Important:</strong><br>
+    Call <code>LoadCache()</code> at the start of your main function to initialize the user cache, and defer <code>SaveCache()</code> to save changes when the program exits.</p>
 </div>
-
 <div>
-  <h3>Important Struct Information:</h3>
-  <p>The <code>User</code> struct is defined as follows:</p>
+  <h3>User Struct:</h3>
   <pre><code>
 type User struct {
+    Id       int    `json:"Id"`
     Username string `json:"Username"`
-    Password string `json:"Password"`
     Email    string `json:"Email"`
-    ID       int    `json:"ID"`
+    Password string `json:"Password"`
 }
   </code></pre>
-  <p>You could also just download the <code>db.go</code> file yourself, put the file inside a folder named <code>db</code> in your project directory, and import it in your code using <code>import "your_project_path/db"</code>.</p>
+  <p>This can be modified by simply downloading the <code>db.go</code> file, placing it in a folder named <code>db</code> inside your prokect and importing it using <code>import "your_project_path/db"</code>.</p>
 </div>
-
 <div>
   <h3>Functions:</h3>
-
   <p><strong>1. DoesFileExist(path string) (bool, error):</strong><br>
-   - Checks if a file exists at the specified path.<br>
-   - Returns <code>true</code> and <code>nil</code> error if the file exists, <code>false</code> and <code>nil</code> error if it doesn't, and <code>true</code> with an error if any other error occurs.</p>
-
-  <p><strong>2. LoadUsersFromJSON():</strong><br>
-   - Initializes the user cache by reading from the JSON file.<br>
-   - Should be called at the beginning of the main function.</p>
-
-  <p><strong>3. SaveUsersToJSON():</strong><br>
-   - Saves the user cache to the JSON file.<br>
-   - Should be deferred at the beginning of the main function.</p>
-
-  <p><strong>4. InsertUser(user User):</strong><br>
-   - Adds a user to the cache.</p>
-
-  <p><strong>5. RetrieveAllUsers() []User:</strong><br>
-   - Retrieves all users from the cache.</p>
-
-  <p><strong>6. RetrieveUserByID(id int) User:</strong><br>
-   - Retrieves a user from the cache by their ID.</p>
-
-  <p><strong>7. RemoveUserByID(id int):</strong><br>
-   - Removes a user from the cache by their ID.</p>
+    Checks if a file exists at the given path.</p>
+  <p><strong>2. LoadCache():</strong><br>
+    Loads the user cache from the JSON file. Call this at the start of your main function.</p>
+  <p><strong>3. SaveCache():</strong><br>
+    Saves the user cache to the JSON file. Defer this at the start of your main function.</p>
+  <p><strong>4. AddUser(user User):</strong><br>
+    Adds a user to the cache.</p>
+  <p><strong>5. GetUserById(id int) User:</strong><br>
+    Retrieves a user from the cache by their Id.</p>
+  <p><strong>6. DeleteUserById(id int):</strong><br>
+    Deletes a user from the cache by their Id.</p>
 </div>
