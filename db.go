@@ -10,7 +10,7 @@ import (
 type User struct {
 	Username string `json:"Username"`
 	Email    string `json:"Email"`
-	Id       int    `json:"Id"`
+	ID       int    `json:"ID"`
 }
 
 var userFile = "users.json"
@@ -27,14 +27,14 @@ func DoesFileExist(path string) (bool, error) {
 	return true, err
 }
 
-func FillCache() {
+func LoadUsersFromJSON() {
 	result, _ := DoesFileExist(userFile)
 	if !result {
 		os.Create(userFile)
 		os.WriteFile(userFile, []byte("[]"), 0644)
 	}
 
-	data, err := os.ReadFile("users.json")
+	data, err := os.ReadFile(userFile)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -45,7 +45,7 @@ func FillCache() {
 
 }
 
-func SaveCache() {
+func SaveUsersToJSON() {
 	newData, err := json.Marshal(userFileCache)
 	if err != nil {
 		log.Fatal(err)
@@ -56,15 +56,15 @@ func SaveCache() {
 	}
 }
 
-func SaveUser(user User) {
+func AddUserToCache(user User) {
 	userFileCache = append(userFileCache, user)
 }
 
-func GetUsers() []User {
+func RetrieveAllUsers() []User {
 	return userFileCache
 }
 
-func GetUserById(id int) User {
+func RetrieveUserByID(id int) User {
 	var foundUser User
 	for _, user := range userFileCache {
 		if user.Id == id {
@@ -75,7 +75,7 @@ func GetUserById(id int) User {
 	return foundUser
 }
 
-func DeleteUserById(id int) {
+func RemoveUserByID(id int) {
 	var userIndex int
 	for i, user := range userFileCache {
 		if user.Id == id {
